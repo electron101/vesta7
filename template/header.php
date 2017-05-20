@@ -89,7 +89,8 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <script src="bootstrap/js/jquery-2.2.3.min.js"></script>
+
+	<script src="bootstrap/js/jquery-2.2.3.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <script src="bootstrap/js/bootstrap-select.min.js"></script>
     <script src="bootstrap/js/i18n/defaults-ru_RU.min.js"></script>
@@ -175,14 +176,52 @@ $(function()
         ?>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav navbar-right">            
-            <li><a href="?act=lk"><span class="glyphicon glyphicon-user" aria-hidden="true">
-                                  </span><?php echo " ".$_SESSION['login']. " (".$role.")" ?>
-                </a>
-            </li>
-            <li>
-              <a href="?act=logout"><span class="glyphicon glyphicon-log-out" aria-hidden="true">
-                                  </span> Выйти</a>
-            </li>
+
+
+
+				<?php
+				/**
+				 * Если переменная сессии определена, то выводим 
+				 * информацию о пользователе и кнопку выхода
+				 */
+				if (isset($_SESSION['login'])):?>
+					<li>
+						<a href="?act=lk" >
+							<span class="glyphicon glyphicon-user  aria-hidden="true">
+							</span>
+							<?php echo " ".$_SESSION['login'] ?>
+						</a>
+					</li>
+					<li>
+						<a href="?act=logout" >
+							<span class="glyphicon glyphicon-log-out" aria-hidden="true">
+							</span> Выйти
+						</a>
+					</li>
+				<?php endif;?>
+
+				<?php
+				/**
+				* Если переменная сессии не определена, то выводим
+				* сылку для регистрации и сылку для входа
+				*/
+				if (!isset($_SESSION['login'])):?>
+					<li>
+						<a href="?act=registry" >
+							<span class="fa fa-address-card-o aria-hidden="true">
+							</span> Регистрация
+						</a>
+					</li>
+					<li>
+						<a href="?act=login" >
+							<span class="glyphicon glyphicon-log-in" aria-hidden="true">
+							</span> Войти
+						</a>
+					</li>
+				<?php endif;?>
+
+
+
           </ul>
         </div><!--/.nav-collapse -->
       </div>

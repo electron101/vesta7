@@ -64,7 +64,7 @@
 	  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 	<![endif]-->
 
-	<script src="jquery/jquery-1.12.3.min.js"></script>
+	<script src="bootstrap/js/jquery-1.12.3.min.js"></script>
 	<script src="bootstrap/js/bootstrap.min.js"></script>
 
   </head>

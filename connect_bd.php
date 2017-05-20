@@ -1,5 +1,5 @@
 <?php
-$mysqli = new mysqli("localhost", "vesta", "1991", "vesta"); 
+$mysqli = new mysqli("localhost", "root", "1991", "vesta"); 
 // кодировка по умолчанию
 if (!$mysqli->set_charset("utf8")) {
     printf("Ошибка при загрузке набора символов utf8: %s\n", $mysqli->error);
